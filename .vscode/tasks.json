@@ -11,22 +11,27 @@
             "options": {
                 "cwd": "${workspaceRoot}/build"
             },
+            "command": "cmake",
             "args": [
-                "cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug .."
+                "-G",
+                "\"Unix Makefiles\"",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "${workspaceRoot}"
             ]
         },
         {
             "label": "make",
             "type": "shell",
+            "command": "make",
             "args": [
-                "make -j 8"
+                "-j8"
             ],
             "options": {
                 "cwd": "${workspaceRoot}/build"
-            } /*,
+            },
             "dependsOn": [
                 "cmake"
-            ] */
+            ]
         }
     ]
 }

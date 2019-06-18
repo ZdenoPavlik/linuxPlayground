@@ -25,6 +25,10 @@ int main(int argc, char **argv)
     addOutOfScopeBooks(bookshelf);
 
     bookshelf.listAllBooks();
+    //test
+
+    char *intendedMemoryLeak = (char *)calloc(1, 100);
+    strcpy(intendedMemoryLeak, "This is my intended memory leak");
 
     return 0;
 }
