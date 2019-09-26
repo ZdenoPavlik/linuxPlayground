@@ -15,15 +15,21 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 ################################
 # Add test cpp file
 set (SOURCES
-    Library/BookshelfTest/BookshelfTest.cpp
-    Library/DummyTest.cpp
+    ../src/Library/Book/Book.cpp
+    UnitTests/SimpleUnitTest.cpp
+    UnitTests/FixturesTest.cpp
+    MockingTests/MockedBook.cpp
+    MockingTests/MockedBookTest.cpp
+    DummyTest.cpp
 )
 
 set(HEADERS
     stdafx_test.h
 )
 
-add_executable( runUnitTests ${HEADERS} ${SOURCES})
+add_executable(runUnitTests ${HEADERS} ${SOURCES})
 # Link test executable against gtest & gtest_main
-target_link_libraries(runUnitTests gtest pthread gtest_main)
+target_link_libraries(runUnitTests gtest pthread -lgtest -lgmock gtest_main )
 add_test( runUnitTests runUnitTests )
+
+

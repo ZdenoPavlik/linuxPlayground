@@ -12,9 +12,8 @@ cd build
 
 cmake -G "Unix Makefiles" ..
 
-Makefiles
+make
 
-
-./Playground
-
-./test/runUnitTests
+https://github.com/google/googletest
+https://github.com/google/googletest/blob/master/googletest/docs/primer.md
+https://github.com/google/googletest/blob/master/googlemock/docs/for_dummies.md
