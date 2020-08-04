@@ -5,17 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Chapter_00",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/Playground",
+            "program": "${workspaceFolder}/build/chapter_00/Chapter_00",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            //"preLaunchTask": "BuildProject",
-            "preLaunchTask": "make",
+            "preLaunchTask": "buildProject",
             "MIMode": "gdb",
             "setupCommands": [
                 {
@@ -26,17 +25,16 @@
             ]
         },
         {
-            "name": "UnitTests",
+            "name": "Chapter_01",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/test/runUnitTests",
+            "program": "${workspaceFolder}/build/chapter_01/Chapter_01",
             "args": [],
-            "stopAtEntry": false,
+            "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            //"preLaunchTask": "BuildProject",
-            "preLaunchTask": "make",
+            "preLaunchTask": "buildProject",
             "MIMode": "gdb",
             "setupCommands": [
                 {

@@ -41,6 +41,16 @@
         "typeinfo": "cpp",
         "utility": "cpp",
         "algorithm": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "cstdarg": "cpp",
+        "atomic": "cpp",
+        "iterator": "cpp",
+        "map": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "random": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "bit": "cpp"
     }
 }
