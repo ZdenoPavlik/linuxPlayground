@@ -4,9 +4,15 @@
 #include "test1.cpp"
 #include "test2.cpp"
 
-#define UNUSED(expr) (void)(expr) //clang-tidy
-
 #include <iostream>
+#include <boost/log/core.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/trivial.hpp>
+#include <boost/log/expressions.hpp>
+#include <boost/log/utility/setup/console.hpp>
+#include <boost/log/utility/setup/common_attributes.hpp>
+
+#define UNUSED(expr) (void)(expr) //clang-tidy
 
 int main(int argc, char** argv)
 {

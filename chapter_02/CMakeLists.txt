@@ -22,3 +22,10 @@ find_package(Threads REQUIRED)
 target_link_libraries(${APPNAME} Threads::Threads)
 include_directories(${Threads_INCLUDE_DIRS})
 link_directories(${Threads_LIBRARY_DIRS})
+
+# Boost
+SET(Boost_USE_STATIC_LIBS ON)
+find_package(Boost COMPONENTS log REQUIRED)
+target_link_libraries(${APPNAME} Boost::log_setup Boost::log)
+include_directories(${Boost_INCLUDE_DIRS})
+link_directories(${Boost_LIBRARY_DIRS})

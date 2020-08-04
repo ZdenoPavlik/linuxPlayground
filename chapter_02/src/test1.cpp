@@ -2,6 +2,7 @@
 #include <mutex>
 #include <thread>
 #include <chrono>
+#include <boost/current_function.hpp>
 
 namespace test1 {
 
