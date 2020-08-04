@@ -2,11 +2,14 @@ cmake_minimum_required(VERSION 3.5)
 set(APPNAME "Chapter_03")
 
 
+
 set (SOURCES
     src/main.cpp
+    src/SmartContainer.cpp
 )
 
 set(HEADERS
+    src/SmartContainer.hpp
 )
 
 project(${APPNAME}  LANGUAGES CXX)
