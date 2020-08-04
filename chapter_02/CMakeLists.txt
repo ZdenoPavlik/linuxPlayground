@@ -16,3 +16,9 @@ target_compile_options(${APPNAME} PRIVATE -Wall -Wcast-align -Wconversion -Wctor
 
 install (TARGETS ${APPNAME} RUNTIME DESTINATION bin)
 include_directories(src)
+
+# Threads
+find_package(Threads REQUIRED)
+target_link_libraries(${APPNAME} Threads::Threads)
+include_directories(${Threads_INCLUDE_DIRS})
+link_directories(${Threads_LIBRARY_DIRS})

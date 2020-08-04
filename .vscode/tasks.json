@@ -3,9 +3,16 @@
     "tasks": [
         {
             "label": "buildProject",
-            "command": "${workspaceFolder}/build.sh",
-            "args": [],
-            "type": "shell"
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "command": "make",
+            "args": [
+                "-j",
+                "16",
+                "install"
+            ]
         }
     ]
 }
