@@ -20,7 +20,7 @@ void task_withAtomic(std::string threadName, int appendVal)
     for(int i = 0; i < 5; i++)
     {
         atomicSharedNumber += appendVal;
-        std::cout << "[task_withAtomic]Thread " << threadName << " modified atomicSharedNumber to " << atomicSharedNumber << std::endl;
+        std::cout << "[task_withAtomic] Thread " << threadName << " modified atomicSharedNumber to " << atomicSharedNumber << std::endl;
         std::this_thread::sleep_for(getRandomTime());
     }
 }

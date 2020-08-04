@@ -55,7 +55,7 @@ void test1_withLockGuard()
 {
     std::thread t1(task_withGuard, "t1", 'a');
     std::thread t2(task_withGuard, "t2", 'b');
-    std::thread t3(task_withoutGuard, "t3", 'c');
+    std::thread t3(task_withGuard, "t3", 'c');
 
     t1.join();
     t2.join();
