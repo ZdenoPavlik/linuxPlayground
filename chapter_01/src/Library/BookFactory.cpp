@@ -5,7 +5,7 @@ BookFactory *BookFactory::instance = nullptr;
 BookFactory::BookFactory()
 {
     std::cout << "Instantiating BookFactory" << std::endl;
-};
+}
 
 BookFactory *BookFactory::getInstance()
 {
@@ -14,7 +14,7 @@ BookFactory *BookFactory::getInstance()
         BookFactory::instance = new BookFactory();
     }
     return BookFactory::instance;
-};
+}
 
 std::shared_ptr<Book> BookFactory::createBook(std::string bookName)
 {

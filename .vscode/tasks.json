@@ -10,8 +10,7 @@
             "command": "make",
             "args": [
                 "-j",
-                "16",
-                "install"
+                "16"
             ]
         }
     ]

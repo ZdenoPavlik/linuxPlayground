@@ -41,8 +41,5 @@ find_package(Boost COMPONENTS system python filesystem REQUIRED)
 include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
-
-install(TARGETS ${APPNAME} DESTINATION build)
-
 #add_subdirectory(src)
 add_subdirectory(test)
