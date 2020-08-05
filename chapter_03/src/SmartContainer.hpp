@@ -14,11 +14,26 @@ public:
     virtual ~SmartContainer();
 
     size_t size();
-    T at();
+    T& at(size_t index);
     void add(T newElement);
-    T remove(size_t index);
+    void remove(size_t index);
 
 private:
+    unsigned int _referenceCounter = 0;
     T* _storage;
-    size_t size{0};
+    size_t _size{0};
 };
+
+/*
+_storage = new T
+Takto to bude urobene. Vytvori sa jedna instancia, ktora sa pohadzuje. A ked sa referenceCounter znizi na 0 tak sa vymaze.
+*/
+
+/*
+https://stackoverflow.com/questions/8752837/undefined-reference-to-template-class-constructor
+
+When combinining templated class with constructor in cpp(!) it will end with undefined reference by compiler.
+Therefore is used inl file to create "single inlined file"
+*/
+
+#include "SmartContainer.inl"

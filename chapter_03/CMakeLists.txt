@@ -4,16 +4,15 @@ set(APPNAME "Chapter_03")
 
 
 set (SOURCES
+    src/SmartContainer.hpp
     src/main.cpp
-    src/SmartContainer.cpp
 )
 
 set(HEADERS
-    src/SmartContainer.hpp
 )
 
 project(${APPNAME}  LANGUAGES CXX)
-add_executable(${APPNAME} ${HEADERS} ${SOURCES} )
-target_compile_options(${APPNAME} PRIVATE -Wall -Wcast-align -Wconversion -Wctor-dtor-privacy -Werror -Wextra -Wpedantic -Wshadow -Wsign-conversion)  #Enable warning
+add_executable(${APPNAME} ${SOURCES} ${HEADERS} )
+target_compile_options(${APPNAME} PRIVATE -Wall -Wcast-align -Wconversion -Wctor-dtor-privacy -Wshadow -Wsign-conversion)  #Enable warning
 
 include_directories(src)
