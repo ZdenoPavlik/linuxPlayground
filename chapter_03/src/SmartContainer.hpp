@@ -9,7 +9,7 @@ public:
     SmartContainer(const SmartContainer& other);                      // copy constructor
     SmartContainer(const SmartContainer&& other) noexcept;            // move constructor
     SmartContainer& operator=(const SmartContainer& other);           // copy assignment
-    SmartContainer& operator=(const SmartContainer&& other) noexcept; // move assignemnt
+    SmartContainer& operator=(const SmartContainer&& other) noexcept; // move assignment
 
     virtual ~SmartContainer();
 
@@ -23,11 +23,6 @@ private:
     T* _storage;
     size_t _size{0};
 };
-
-/*
-_storage = new T
-Takto to bude urobene. Vytvori sa jedna instancia, ktora sa pohadzuje. A ked sa referenceCounter znizi na 0 tak sa vymaze.
-*/
 
 /*
 https://stackoverflow.com/questions/8752837/undefined-reference-to-template-class-constructor
