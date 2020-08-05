@@ -38,7 +38,7 @@ template <typename T>
 SmartContainer<T>& SmartContainer<T>::operator=(const SmartContainer&& other) noexcept
 {
 }
-//Test line
+//Test line 2
 
 template <typename T>
 SmartContainer<T>::~SmartContainer()
