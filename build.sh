@@ -1,5 +1,5 @@
 #!/bin/bash
-
+reset
 buildDir="build"
 
 echo '************************************'
