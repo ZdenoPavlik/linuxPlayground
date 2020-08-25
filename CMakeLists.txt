@@ -15,3 +15,6 @@ add_subdirectory(chapter_02)
 
 #Chapter 03 -> Own implementation of smart template container
 add_subdirectory(chapter_03)
+
+#Chapter 04 -> CRPT - https://www.fluentcpp.com/2017/05/12/curiously-recurring-template-pattern/
+add_subdirectory(chapter_04)
