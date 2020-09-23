@@ -8,7 +8,7 @@ project("LinuxPlayground"  LANGUAGES CXX)
 add_subdirectory(chapter_00)
 
 #Chapter 01 -> Gtest and Gmock
-add_subdirectory(chapter_01)
+#add_subdirectory(chapter_01)
 
 #Chapter 02 -> Atomic vs lock_guard
 add_subdirectory(chapter_02)
@@ -18,3 +18,7 @@ add_subdirectory(chapter_03)
 
 #Chapter 04 -> CRPT - https://www.fluentcpp.com/2017/05/12/curiously-recurring-template-pattern/
 add_subdirectory(chapter_04)
+
+#Chapter 05 -> Boost.Asio -> https://www.boost.org/doc/libs/1_65_0/doc/html/boost_asio/examples/cpp11_examples.html
+add_subdirectory(chapter_05/example_1)
+add_subdirectory(chapter_05/example_2)
