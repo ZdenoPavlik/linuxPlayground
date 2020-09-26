@@ -147,6 +147,29 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Chapter_05_e03_http_request_client",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/chapter_05/example_3/Chapter_05_e3_client",
+            "args": [
+                "www.apache.org",
+                "/licenses/LICENSE-2.0.txt"
+            ],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "buildProject",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]
 }

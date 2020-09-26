@@ -22,3 +22,4 @@ add_subdirectory(chapter_04)
 #Chapter 05 -> Boost.Asio -> https://www.boost.org/doc/libs/1_65_0/doc/html/boost_asio/examples/cpp11_examples.html
 add_subdirectory(chapter_05/example_1)
 add_subdirectory(chapter_05/example_2)
+add_subdirectory(chapter_05/example_3)
