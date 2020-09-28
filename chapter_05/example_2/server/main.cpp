@@ -1,5 +1,4 @@
-//https : //www.boost.org/doc/libs/1_66_0/doc/html/boost_asio/example/cpp11/echo/async_tcp_echo_server.cpp
-
+//https://www.boost.org/doc/libs/1_65_1/doc/html/boost_asio/example/cpp11/echo/async_tcp_echo_server.cpp
 //
 // async_tcp_echo_server.cpp
 // ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,8 +66,9 @@ private:
 class server
 {
 public:
-    server(boost::asio::io_context& io_context, short port)
-        : acceptor_(io_context, tcp::endpoint(tcp::v4(), port))
+    server(boost::asio::io_service& io_service, short port)
+        : acceptor_(io_service, tcp::endpoint(tcp::v4(), port))
+        , socket_(io_service)
     {
         do_accept();
     }
@@ -76,11 +76,11 @@ public:
 private:
     void do_accept()
     {
-        acceptor_.async_accept(
-            [this](boost::system::error_code ec, tcp::socket socket) {
+        acceptor_.async_accept(socket_,
+            [this](boost::system::error_code ec) {
                 if(!ec)
                 {
-                    std::make_shared<session>(std::move(socket))->start();
+                    std::make_shared<session>(std::move(socket_))->start();
                 }
 
                 do_accept();
@@ -88,6 +88,7 @@ private:
     }
 
     tcp::acceptor acceptor_;
+    tcp::socket socket_;
 };
 
 int main(int argc, char* argv[])
@@ -100,11 +101,11 @@ int main(int argc, char* argv[])
             return 1;
         }
 
-        boost::asio::io_context io_context;
+        boost::asio::io_service io_service;
 
-        server s(io_context, std::atoi(argv[1]));
+        server s(io_service, std::atoi(argv[1]));
 
-        io_context.run();
+        io_service.run();
     }
     catch(std::exception& e)
     {

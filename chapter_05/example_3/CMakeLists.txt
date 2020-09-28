@@ -14,6 +14,10 @@ set(HEADERS
 
 project(${APPNAME_client}  LANGUAGES CXX)
 add_executable(${APPNAME_client} ${HEADERS} ${SOURCES} )
+
+find_package(Boost 1.65.1 REQUIRED COMPONENTS system filesystem)
+include_directories(... ${Boost_INCLUDE_DIRS})
+link_directories(... ${Boost_LIBRARY_DIRS})
 target_link_libraries(${APPNAME_client} ${Boost_LIBRARIES})
 
 include_directories(client)

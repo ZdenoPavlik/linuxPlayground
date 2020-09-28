@@ -31,7 +31,14 @@ set(HEADERS
 
 project(${APPNAME_server}  LANGUAGES CXX)
 add_executable(${APPNAME_server} ${HEADERS} ${SOURCES} )
+target_compile_options(${APPNAME_server} PRIVATE -Wall -Wcast-align -Werror -Wextra -Wpedantic -Wshadow)  #Enable warning
+
+#Boost
+find_package(Boost 1.65.1 REQUIRED COMPONENTS system filesystem)
+include_directories(... ${Boost_INCLUDE_DIRS})
+link_directories(... ${Boost_LIBRARY_DIRS})
 target_link_libraries(${APPNAME_server} ${Boost_LIBRARIES})
-target_compile_options(${APPNAME_server} PRIVATE -Wall -Wcast-align -Wctor-dtor-privacy -Werror -Wextra -Wpedantic -Wshadow)  #Enable warning
+
+
 
 include_directories(server)
