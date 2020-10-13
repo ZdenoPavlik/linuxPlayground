@@ -23,3 +23,7 @@ add_subdirectory(chapter_04)
 add_subdirectory(chapter_05/example_1)
 add_subdirectory(chapter_05/example_2)
 add_subdirectory(chapter_05/example_3)
+
+
+#Chapter 06 -> 
+add_subdirectory(chapter_06)
