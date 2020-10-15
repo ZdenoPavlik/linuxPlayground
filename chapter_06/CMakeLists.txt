@@ -14,3 +14,5 @@ add_executable(${APPNAME} ${HEADERS} ${SOURCES} )
 target_compile_options(${APPNAME} PRIVATE -Wall -Wcast-align -Wconversion -Wctor-dtor-privacy -Werror -Wextra -Wpedantic -Wshadow -Wsign-conversion)  #Enable warning
 
 include_directories(src)
+
+add_subdirectory(test)
