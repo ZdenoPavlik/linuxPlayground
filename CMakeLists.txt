@@ -24,6 +24,9 @@ add_subdirectory(chapter_05/example_1)
 add_subdirectory(chapter_05/example_2)
 add_subdirectory(chapter_05/example_3)
 
-
-#Chapter 06 -> 
+#Chapter 06 -> Dependency injection using template -> https://bajamircea.github.io/coding/cpp/2015/11/01/dependency-injection-templates.html
 add_subdirectory(chapter_06)
+
+#Chapter 07 -> Type traits -> https://www.internalpointers.com/post/quick-primer-type-traits-modern-cpp
+add_subdirectory(chapter_07)
+
