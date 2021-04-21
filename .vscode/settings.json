@@ -66,6 +66,8 @@
         "*.ipp": "cpp",
         "csignal": "cpp",
         "codecvt": "cpp",
-        "future": "cpp"
-    }
+        "future": "cpp",
+        "climits": "cpp"
+    },
+    "debug.onTaskErrors": "abort"
 }

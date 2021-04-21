@@ -30,3 +30,6 @@ add_subdirectory(chapter_06)
 #Chapter 07 -> Type traits -> https://www.internalpointers.com/post/quick-primer-type-traits-modern-cpp
 add_subdirectory(chapter_07)
 
+#Chapter 08 -> Templates and SFINAE
+add_subdirectory(chapter_08_templates)
+
