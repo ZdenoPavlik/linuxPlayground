@@ -33,3 +33,6 @@ add_subdirectory(chapter_07_type_traits)
 #Chapter 08 -> Templates and SFINAE
 add_subdirectory(chapter_08_templates)
 
+#Chapter 09 -> Templates and SFINAE
+add_subdirectory(chapter_09_modules)
+

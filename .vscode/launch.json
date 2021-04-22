@@ -28,7 +28,7 @@
             "name": "Chapter_01",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_01/Chapter_01",
+            "program": "${workspaceFolder}/build/chapter_01_testing/Chapter_01",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -48,7 +48,7 @@
             "name": "Chapter_02",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_02/Chapter_02",
+            "program": "${workspaceFolder}/build/chapter_02_thread_synchronization/Chapter_02",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -68,7 +68,7 @@
             "name": "Chapter_03",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_03/Chapter_03",
+            "program": "${workspaceFolder}/build/chapter_03_smart_container/Chapter_03",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -88,7 +88,7 @@
             "name": "Chapter_04",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_04/Chapter_04",
+            "program": "${workspaceFolder}/build/chapter_04_reversed_inheritance_CRPT/Chapter_04",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -108,7 +108,7 @@
             "name": "Chapter_05_e01_server_blocking",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_05/example_1/Chapter_05_e1_server",
+            "program": "${workspaceFolder}/build/chapter_05_boost_asio/example_1/Chapter_05_e1_server",
             "args": [
                 "12345"
             ],
@@ -130,7 +130,7 @@
             "name": "Chapter_05_e02_server_NON_blocking",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_05/example_2/Chapter_05_e2_server",
+            "program": "${workspaceFolder}/build/chapter_05_boost_asio/example_2/Chapter_05_e2_server",
             "args": [
                 "12345"
             ],
@@ -152,7 +152,7 @@
             "name": "Chapter_05_e03_http_request_client",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_05/example_3/Chapter_05_e3_client",
+            "program": "${workspaceFolder}/build/chapter_05_boost_asio/example_3/Chapter_05_e3_client",
             "args": [
                 "www.apache.org",
                 "/licenses/LICENSE-2.0.txt"
@@ -175,7 +175,7 @@
             "name": "Chapter_06",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_06/Chapter_06",
+            "program": "${workspaceFolder}/build/chapter_06_dependency_injection/Chapter_06",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -195,7 +195,7 @@
             "name": "Chapter_07",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_07/Chapter_07",
+            "program": "${workspaceFolder}/build/chapter_07_type_traits/Chapter_07",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
@@ -215,6 +215,25 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/chapter_08_templates/Chapter_08",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "buildProject",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },{
+            "name": "Chapter_09",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/chapter_09_modules/Chapter_09",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
