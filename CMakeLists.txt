@@ -8,27 +8,27 @@ project("LinuxPlayground"  LANGUAGES CXX)
 add_subdirectory(chapter_00)
 
 #Chapter 01 -> Gtest and Gmock
-#add_subdirectory(chapter_01)
+#add_subdirectory(chapter_01_testing)
 
 #Chapter 02 -> Atomic vs lock_guard
-add_subdirectory(chapter_02)
+add_subdirectory(chapter_02_thread_synchronization)
 
 #Chapter 03 -> Own implementation of smart template container
-add_subdirectory(chapter_03)
+add_subdirectory(chapter_03_smart_container)
 
 #Chapter 04 -> CRPT - https://www.fluentcpp.com/2017/05/12/curiously-recurring-template-pattern/
-add_subdirectory(chapter_04)
+add_subdirectory(chapter_04_reversed_inheritance_CRPT)
 
 #Chapter 05 -> Boost.Asio -> https://www.boost.org/doc/libs/1_65_0/doc/html/boost_asio/examples/cpp11_examples.html
-add_subdirectory(chapter_05/example_1)
-add_subdirectory(chapter_05/example_2)
-add_subdirectory(chapter_05/example_3)
+add_subdirectory(chapter_05_boost_asio/example_1)
+add_subdirectory(chapter_05_boost_asio/example_2)
+add_subdirectory(chapter_05_boost_asio/example_3)
 
 #Chapter 06 -> Dependency injection using template -> https://bajamircea.github.io/coding/cpp/2015/11/01/dependency-injection-templates.html
-add_subdirectory(chapter_06)
+add_subdirectory(chapter_06_dependency_injection)
 
 #Chapter 07 -> Type traits -> https://www.internalpointers.com/post/quick-primer-type-traits-modern-cpp
-add_subdirectory(chapter_07)
+add_subdirectory(chapter_07_type_traits)
 
 #Chapter 08 -> Templates and SFINAE
 add_subdirectory(chapter_08_templates)
