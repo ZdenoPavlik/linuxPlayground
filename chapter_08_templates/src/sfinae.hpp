@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <cassert>
-#include <boost/assert.hpp>
+#include <exception>
 
 //https://www.bfilipek.com/2016/02/notes-on-c-sfinae.html
 //https://en.cppreference.com/w/cpp/language/sfinae
@@ -26,7 +26,21 @@ template <typename T,
     std::enable_if_t<std::is_integral<T>::value, bool> = true>
 void compileableOnlyWithIntegers(T input)
 {
-    std::cout << "Input is " << input << std::endl;
+    std::cout << "[Integer] Input is " << input << std::endl;
+}
+
+template <typename T>
+void throwsExceptionIfNotString(T input)
+{
+    if constexpr(std::is_same<T, std::string>::value)
+    {
+        std::cout << "[String] Input is " << input << std::endl;
+    }
+    else
+    {
+        std::cout << "Throwing exception" << std::endl;
+        throw std::runtime_error("Input parameter is not string!");
+    }
 }
 
 void sfinaePlayground()
@@ -42,6 +56,9 @@ void sfinaePlayground()
         std::cout << "-----------------------------------------------------------------" << std::endl;
         compileableOnlyWithIntegers<int>(2);
         //compileableOnlyWithIntegers<std::string>("2");
+        std::cout << "-----------------------------------------------------------------" << std::endl;
+        throwsExceptionIfNotString<std::string>("Valid");
+        throwsExceptionIfNotString<int>(5);
         std::cout << "-----------------------------------------------------------------" << std::endl;
     }
     catch(std::exception& e)
