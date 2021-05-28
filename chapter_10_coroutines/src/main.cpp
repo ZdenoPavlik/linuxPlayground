@@ -1,4 +1,7 @@
-#define UNUSED(expr) (void)(expr) //clang-tidy
+/*
+https://www.modernescpp.com/index.php/c-20-coroutines-the-first-overview
+https://www.scs.stanford.edu/~dm/blog/c++-coroutines.html
+*/
 
 #include <coroutine>
 #include <iostream>
@@ -22,7 +25,7 @@ struct promise_type
 
 struct Awaiter
 {
-    std::coroutine_handle<>* hp_;
+    std::coroutine_handle<>* hp_ = nullptr;
     constexpr bool await_ready() const noexcept
     {
         return false;

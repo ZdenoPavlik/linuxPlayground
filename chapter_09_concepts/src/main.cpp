@@ -1,31 +1,31 @@
 /*
     Playground project for C++
 */
-#define UNUSED(expr) (void)(expr) //clang-tidy
 
 #include <iostream>
 
-/*template <class T>
-concept Incrementable = std::is_integral<T>::value;
+template <class T>
+concept Unchangeable = std::is_const<T>::value;
 
 template <class T>
-concept Decrementable = std::is_integral<T>::value;
+concept EasilyIncDecrementable = std::is_integral<T>::value&& std::is_trivial<T>::value&& std::is_arithmetic_v<T>;
 
 template <typename T>
-requires Incrementable<T>&& Decrementable<T> void calculationFunction(T num1, T num2)
+requires Unchangeable<T>&& EasilyIncDecrementable<T> void calculationFunction(T num1, T num2)
 {
     std::cout << "Diff is " << (num1 - num2) << std::endl;
     std::cout << "Sum is " << (num1 + num2) << std::endl;
-}*/
+}
 
-int main(int argc, char** argv)
+int main()
 {
-    UNUSED(argc);
-    UNUSED(argv);
-
     std::cout << "Hello World!" << std::endl;
 
-    //calculationFunction<int>(1, 5); // supported by at least gcc 10
+    // supported by at least gcc 10
+    calculationFunction<const int>(1, 5);
+    calculationFunction<int>(1, 5);                     //not compileable, T is not "const"
+    calculationFunction<std::string>("aa", "bb");       //not compileable, T is not "const". If it is "EasilyIncDecrementable" is not evaluated
+    calculationFunction<const std::string>("aa", "bb"); //not compileable, T is not "EasilyIncDecrementable"
 
     return 0;
 }
