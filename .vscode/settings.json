@@ -67,7 +67,14 @@
         "csignal": "cpp",
         "codecvt": "cpp",
         "future": "cpp",
-        "climits": "cpp"
+        "climits": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "ranges": "cpp",
+        "stop_token": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "coroutine": "cpp"
     },
     "debug.onTaskErrors": "abort"
 }

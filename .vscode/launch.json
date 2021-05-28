@@ -233,7 +233,26 @@
             "name": "Chapter_09",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_09_modules/Chapter_09",
+            "program": "${workspaceFolder}/build/chapter_09_concepts/Chapter_09",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "buildProject",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },{
+            "name": "Chapter_10",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/chapter_10_coroutines/Chapter_10",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
