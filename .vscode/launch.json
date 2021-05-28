@@ -267,6 +267,25 @@
                     "ignoreFailures": true
                 }
             ]
+        },{
+            "name": "Chapter_11",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/chapter_11_string_view/Chapter_11",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "buildProject",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ]
 }

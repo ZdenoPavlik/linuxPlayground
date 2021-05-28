@@ -39,3 +39,7 @@ add_subdirectory(chapter_09_concepts)
 #Chapter 10 -> Coroutines
 add_subdirectory(chapter_10_coroutines)
 
+#Chapter 11 -> String_view
+add_subdirectory(chapter_11_string_view)
+
+
