@@ -28,8 +28,7 @@ int main()
 
     auto end = std::chrono::system_clock::now();
     auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    std::cout << std::endl
-              << "Elapsed time for RAW string: " << elapsed.count() << std::endl;
+    std::cout << std::endl << "Elapsed time for RAW string: " << elapsed.count() << std::endl;
 
     //--Test string view
     start = std::chrono::system_clock::now();
@@ -40,8 +39,7 @@ int main()
     }
     end = std::chrono::system_clock::now();
     elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    std::cout << std::endl
-              << "Elapsed time for string VIEW: " << elapsed.count() << std::endl;
+    std::cout << "Elapsed time for string VIEW: " << elapsed.count() << std::endl << std::endl;
 
     return 0;
 }

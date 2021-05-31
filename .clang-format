@@ -22,7 +22,7 @@ BraceWrapping:
   IndentBraces:    false
 BreakBeforeBraces: Custom
 BreakConstructorInitializers: BeforeComma
-ColumnLimit:     0
+ColumnLimit:     150
 Cpp11BracedListStyle: true
 IncludeBlocks: Preserve
 IndentWidth:     4

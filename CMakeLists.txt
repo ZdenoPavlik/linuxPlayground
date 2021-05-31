@@ -42,4 +42,11 @@ add_subdirectory(chapter_10_coroutines)
 #Chapter 11 -> String_view
 add_subdirectory(chapter_11_string_view)
 
+#Chapter 12 -> Modules
+add_subdirectory(chapter_12_modules)
+
+#Chapter 13 -> Decltype, Declval
+add_subdirectory(chapter_13_decltype_declval)
+
+
 
