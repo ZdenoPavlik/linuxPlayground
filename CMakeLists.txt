@@ -48,5 +48,11 @@ add_subdirectory(chapter_12_modules)
 #Chapter 13 -> Decltype, Declval
 add_subdirectory(chapter_13_decltype_declval)
 
+#Chapter 14 -> Lambdas
+add_subdirectory(chapter_14_lambdas)
+
+#Chapter 15 -> Ranges
+add_subdirectory(chapter_15_ranges)
+
 
 
