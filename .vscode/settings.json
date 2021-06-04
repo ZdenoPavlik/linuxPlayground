@@ -74,7 +74,8 @@
         "stop_token": "cpp",
         "numbers": "cpp",
         "semaphore": "cpp",
-        "coroutine": "cpp"
+        "coroutine": "cpp",
+        "any": "cpp"
     },
     "debug.onTaskErrors": "abort"
 }

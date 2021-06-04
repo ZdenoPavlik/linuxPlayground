@@ -54,8 +54,8 @@ add_subdirectory(chapter_14_lambdas)
 #Chapter 15 -> Ranges
 add_subdirectory(chapter_15_ranges)
 
-#Chapter 16 -> Asserts
-add_subdirectory(chapter_16_asserts)
+#Chapter 16 -> Asserts, std::variant, std::any, std::function
+add_subdirectory(chapter_16_asserts_variants_any_functions)
 
 
 

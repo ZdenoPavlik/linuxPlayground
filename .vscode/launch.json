@@ -366,7 +366,7 @@
             "name": "Chapter_16",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_16_asserts/Chapter_16",
+            "program": "${workspaceFolder}/build/chapter_16_asserts_variants_any_functions/Chapter_16",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
