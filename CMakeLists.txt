@@ -57,5 +57,12 @@ add_subdirectory(chapter_15_ranges)
 #Chapter 16 -> Asserts, std::variant, std::any, std::function
 add_subdirectory(chapter_16_asserts_variants_any_functions)
 
+#Chapter 17 -> chrono
+add_subdirectory(chapter_17_chrono)
+
+#Chapter 18 -> filesystem
+add_subdirectory(chapter_18_filesystem)
+
+
 
 

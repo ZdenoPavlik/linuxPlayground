@@ -32,12 +32,12 @@ int main()
 {
     std::cout << std::boolalpha;
 
-    std::cout << "----------------- ASSERTIONS -----------------" << std::endl;
+    std::cout << std::endl << "----------------- ASSERTIONS -----------------" << std::endl;
     calculateSomething<int, int>(1, 2, (int*)5);
     // calculateSomething<int, short>(1, 2, (int*)5);
     // calculateSomething<int, int>(1, 2, nullptr);
 
-    std::cout << "----------------- VARIANT -----------------" << std::endl;
+    std::cout << std::endl << "----------------- VARIANT -----------------" << std::endl;
     std::variant<int, char, std::string> var; // ! holds a value of one of its alternative types
 
     // var = 15;
@@ -65,20 +65,20 @@ int main()
         std::cout << "Error: " << e.what() << std::endl;
     }
 
-    std::cout << "----------------- ANY -----------------" << std::endl;
+    std::cout << std::endl << "----------------- ANY -----------------" << std::endl;
     std::any a = 1;
-    std::cout << std::endl << a.type().name() << ": " << std::any_cast<int>(a) << std::endl;
+    std::cout << a.type().name() << ": " << std::any_cast<int>(a) << std::endl;
 
     a = true;
     // std::cout << std::any_cast<int>(a); //! will cause "bad any_cast" exception
     std::cout << a.type().name() << ": " << std::any_cast<bool>(a) << std::endl;
 
     a = (std::string) "any cast";
-    std::cout << a.type().name() << ": " << std::any_cast<std::string>(a) << std::endl
+    std::cout << a.type().name() << ": " << std::any_cast<std::string>(a)
               << std::endl; // Does not work perfectly with other than primitive types, but works...
 
     // FUNCTION
-    std::cout << "----------------- FUNCTION -----------------" << std::endl;
+    std::cout << std::endl << "----------------- FUNCTION -----------------" << std::endl;
     std::function f1 = [](int i) { return i * i; }; // 1st lambra expression
     std::cout << f1(5) << std::endl;
 
