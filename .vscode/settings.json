@@ -77,5 +77,8 @@
         "coroutine": "cpp",
         "any": "cpp"
     },
-    "debug.onTaskErrors": "abort"
+    "debug.onTaskErrors": "abort",
+    "cSpell.words": [
+        "clazz"
+    ]
 }

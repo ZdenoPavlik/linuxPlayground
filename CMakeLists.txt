@@ -63,6 +63,9 @@ add_subdirectory(chapter_17_chrono)
 #Chapter 18 -> filesystem
 add_subdirectory(chapter_18_filesystem)
 
+#Chapter 19 -> Move semantic for Mima
+add_subdirectory(chapter_19_move_semantic)
+
 
 
 

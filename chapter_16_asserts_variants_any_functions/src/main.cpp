@@ -5,6 +5,9 @@
 #include <any>
 #include <functional>
 
+#include "variant1.cpp"
+#include "variant2.cpp"
+
 template <typename T, typename R>
 void calculateSomething(T i, R j, int* third)
 {
@@ -28,16 +31,25 @@ int minus(int i, int j)
     return i - j;
 }
 
+// https://www.bfilipek.com/2020/04/variant-virtual-polymorphism.html
 int main()
 {
     std::cout << std::boolalpha;
 
-    std::cout << std::endl << "----------------- ASSERTIONS -----------------" << std::endl;
+    std::cout << std::endl
+              << "----------------------------------------------\n"
+              << "----------------- ASSERTIONS -----------------\n"
+              << "----------------------------------------------\n"
+              << std::endl;
     calculateSomething<int, int>(1, 2, (int*)5);
     // calculateSomething<int, short>(1, 2, (int*)5);
     // calculateSomething<int, int>(1, 2, nullptr);
 
-    std::cout << std::endl << "----------------- VARIANT -----------------" << std::endl;
+    std::cout << std::endl
+              << "----------------------------------------------\n"
+              << "----------------- VARIANT --------------------\n"
+              << "----------------------------------------------\n"
+              << std::endl;
     std::variant<int, char, std::string> var; // ! holds a value of one of its alternative types
 
     // var = 15;
@@ -65,7 +77,19 @@ int main()
         std::cout << "Error: " << e.what() << std::endl;
     }
 
-    std::cout << std::endl << "----------------- ANY -----------------" << std::endl;
+    std::cout << std::endl
+              << "----------------------------------------------\n"
+              << "----------------- VARIANT v 2.0 --------------\n"
+              << "----------------------------------------------\n"
+              << std::endl;
+    variant1();
+    variant2();
+
+    std::cout << std::endl
+              << "----------------------------------------------\n"
+              << "----------------- ANY ------------------------\n"
+              << "----------------------------------------------\n"
+              << std::endl;
     std::any a = 1;
     std::cout << a.type().name() << ": " << std::any_cast<int>(a) << std::endl;
 
@@ -78,7 +102,11 @@ int main()
               << std::endl; // Does not work perfectly with other than primitive types, but works...
 
     // FUNCTION
-    std::cout << std::endl << "----------------- FUNCTION -----------------" << std::endl;
+    std::cout << std::endl
+              << "----------------------------------------------\n"
+              << "----------------- FUNCTION -------------------\n"
+              << "----------------------------------------------\n"
+              << std::endl;
     std::function f1 = [](int i) { return i * i; }; // 1st lambra expression
     std::cout << f1(5) << std::endl;
 

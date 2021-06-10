@@ -23,7 +23,8 @@ int main()
     std::cout << "Steady clock, elapsed " << chrono::duration_cast<chrono::microseconds>(steady_elapsed).count() << " us" << std::endl;
 
     std::chrono::duration<double, std::milli> elapsed_mili = steady_end - steady_start;
-    std::cout << "Steady clock, elapsed in miliseconds " << elapsed_mili.count() << " ms" << std::endl;
+    std::cout << "Steady clock, elapsed in miliseconds " << elapsed_mili.count() << " ms, which is about " << elapsed_mili / 1s << " seconds"
+              << std::endl;
 
     //
     const std::time_t t_c = chrono::system_clock::to_time_t(chrono::system_clock::now());
@@ -33,8 +34,8 @@ int main()
                "ISO 8601 Time[%T] --- ISO 8601 Date[%F] --- Minute Hour[%R] --- time zone name[%Z] --- Full weekday[%A] --- Week of the year[%V]")
         << std::endl; // https://en.cppreference.com/w/cpp/io/manip/put_time
 
-    // const std::time_t steady_t_c = chrono::system_clock::to_time_t(chrono::steady_clock::now()); // intended nonsense, fortunatelly not even
-    // compileable
+    // const std::time_t steady_t_c = chrono::system_clock::to_time_t(chrono::steady_clock::now()); // intended nonsense system vs steady clock,
+    // fortunatelly not even compileable
 
     const std::time_t t_c_2 = chrono::system_clock::to_time_t(chrono::system_clock::now() + 17min);
     std::cout << "In 17 minutes it will be " << std::put_time(std::localtime(&t_c_2), "%R") << std::endl;
