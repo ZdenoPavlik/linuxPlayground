@@ -66,6 +66,11 @@ add_subdirectory(chapter_18_filesystem)
 #Chapter 19 -> Move semantic for Mima
 add_subdirectory(chapter_19_move_semantic)
 
+#Chapter 20 -> Latex
+add_subdirectory(chapter_20_Latex)
+
+#Chapter 21 -> Bitwise operations
+add_subdirectory(chapter_21_bitwise_operations)
 
 
 
