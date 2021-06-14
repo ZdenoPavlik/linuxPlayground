@@ -1,0 +1,19 @@
+#https://github.com/wichtounet/CMakeLatex
+
+PROJECT(Chapter20_Latex NONE)
+cmake_minimum_required(VERSION 3.6)
+SET(LATEX_OUTPUT_PATH build)
+INCLUDE(UseLATEX.cmake)
+
+file(GLOB_RECURSE contents_files RELATIVE ${CMAKE_SOURCE_DIR} contents/*.tex)
+
+ADD_LATEX_DOCUMENT(
+    master.tex
+    INPUTS ${contents_files}
+    IMAGE_DIRS img
+    #BIBFILES bibliography.bib
+    USE_INDEX
+    USE_GLOSSARY
+    FILTER_OUTPUT
+    ADD_CUSTOM_TARGET(pdf)
+    )
