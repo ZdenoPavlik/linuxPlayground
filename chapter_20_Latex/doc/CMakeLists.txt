@@ -9,7 +9,7 @@ include(UseLATEX.cmake)
 # This is the important part.
 ADD_LATEX_DOCUMENT(master.tex 
 #                   BIBFILES references.bib
-                   IMAGE_DIRS img
+                   IMAGE_DIRS ./img
 #                   INPUTS title.tex
 #                          settings.tex
                     #FILTER_OUTPUT //using *.awk files

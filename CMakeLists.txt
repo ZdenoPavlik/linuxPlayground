@@ -67,10 +67,14 @@ add_subdirectory(chapter_18_filesystem)
 add_subdirectory(chapter_19_move_semantic)
 
 #Chapter 20 -> Latex
-add_subdirectory(chapter_20_Latex)
+#add_subdirectory(chapter_20_Latex)
 
 #Chapter 21 -> Bitwise operations
 add_subdirectory(chapter_21_bitwise_operations)
+
+#Chapter 22 -> Threads, future and promises
+add_subdirectory(chapter_22_threads_future)
+
 
 
 
