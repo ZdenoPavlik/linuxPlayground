@@ -46,7 +46,7 @@ void example2_shared_future()
 
     std::promise<int> uberPromise;
     std::shared_future<int> sharedFtr1 = uberPromise.get_future();
-    std::shared_future<int> sharedFtr2 = sharedFtr1;
+    std::shared_future<int> sharedFtr2 = sharedFtr1; // waste of stack size, but intended to visualize possibility of copying
     std::shared_future<int> sharedFtr3 = sharedFtr1;
     std::shared_future<int> sharedFtr4 = sharedFtr1;
     std::shared_future<int> sharedFtr5 = sharedFtr1;

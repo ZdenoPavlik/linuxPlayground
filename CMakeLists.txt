@@ -75,6 +75,10 @@ add_subdirectory(chapter_21_bitwise_operations)
 #Chapter 22 -> Threads, future and promises
 add_subdirectory(chapter_22_threads_future)
 
+#Chapter 23 -> Thread exercises
+add_subdirectory(chapter_23_threads)
+
+
 
 
 
