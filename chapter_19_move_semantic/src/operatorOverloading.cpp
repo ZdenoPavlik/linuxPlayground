@@ -84,8 +84,9 @@ void operatorOverloading()
     std::cout << "Logging class " << class1 << std::endl;
 
     AnotherClass class2("clazz2");
-    class2.operator+(class1);
-    class2 = class2 + class1;
+    class2.operator+(class1); // equivalent to following line
+    class2 = class2 + class1; // equivalent to previous line
+    class2 = class1;
 
     class2();
 

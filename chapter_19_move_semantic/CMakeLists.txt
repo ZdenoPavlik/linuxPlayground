@@ -11,6 +11,6 @@ set(HEADERS
 
 project(${APPNAME}  LANGUAGES CXX)
 add_executable(${APPNAME} ${HEADERS} ${SOURCES} )
-target_compile_options(${APPNAME} PRIVATE -Wall -Wcast-align -Wconversion -Wctor-dtor-privacy -Werror -Wextra -Wpedantic -Wshadow -Wsign-conversion)  #Enable warning
+target_compile_options(${APPNAME} PRIVATE -Wall -Wcast-align -Wconversion -Wctor-dtor-privacy -Wextra -Wpedantic -Wshadow -Wsign-conversion)  #Enable warning
 
 include_directories(src)
