@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "Chapter_00",
             "type": "cppdbg",
@@ -499,7 +500,7 @@
             "name": "Chapter_23",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/chapter_23_threads/Chapter_23",
+            "program": "${workspaceFolder}/build/chapter_23_threads_udemy/Chapter_23",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

@@ -2,13 +2,13 @@
 #include <thread>
 #include <string>
 #include <chrono>
-#include <list>
+#include <queue>
 
 class Cleaner;
 class EngineCrew;
 
-// std::list<Cleaner> cleaningQueue;
-// std::list<EngineCrew> engineCrewQueue;
+std::queue<int> cleaningQueue;
+std::queue<int> engineCrewQueue;
 
 enum Commands
 {

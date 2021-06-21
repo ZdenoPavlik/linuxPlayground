@@ -6,6 +6,7 @@
 
 #include "exercise1.cpp"
 #include "exercise2_ship.cpp"
+#include "exercuse3_parallel_acumulate.cpp"
 
 int main()
 {
@@ -15,7 +16,8 @@ int main()
     std::thread t1([]() { std::cout << std::endl << "print from " << std::this_thread::get_id() << std::endl; });
     thread_guard tg(t1);*/
 
-    exercise2_ship();
+    // exercise2_ship();
+    example3();
 
     return 0;
 }
