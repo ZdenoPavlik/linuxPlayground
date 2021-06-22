@@ -17,10 +17,6 @@ find_package(GTest REQUIRED)
 include_directories(${GTest_INCLUDE_DIRS})
 link_directories(${GTest_LIBRARY_DIRS})
 
-# Boost
-find_package(Boost COMPONENTS system python filesystem REQUIRED)
-include_directories(${Boost_INCLUDE_DIRS})
-link_directories(${Boost_LIBRARY_DIRS})
 
 set (SOURCES
     src/main.cpp

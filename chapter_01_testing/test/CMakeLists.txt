@@ -1,14 +1,20 @@
 # author  Zdenko Pavlik
 
 cmake_minimum_required(VERSION 3.5)
-project(basic_test)
-
-enable_testing()
+set(APPNAME "Chapter_01_unitTests")
+project(${APPNAME})
 
 include_directories(..)
 include_directories(../src)
 include_directories(test)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+
+enable_testing()
+
+# GTest
+find_package(GTest REQUIRED)
+include_directories(${GTest_INCLUDE_DIRS})
+link_directories(${GTest_LIBRARY_DIRS})
 
 ################################
 # Unit Tests
@@ -27,9 +33,9 @@ set(HEADERS
     stdafx_test.h
 )
 
-add_executable(runUnitTests ${HEADERS} ${SOURCES})
+add_executable(${APPNAME} ${HEADERS} ${SOURCES})
 # Link test executable against gtest & gtest_main
-target_link_libraries(runUnitTests gtest pthread -lgtest -lgmock gtest_main )
-add_test( runUnitTests runUnitTests )
+target_link_libraries(${APPNAME} gtest pthread -lgtest -lgmock gtest_main )
+add_test( ${APPNAME} runUnitTests )
 
 

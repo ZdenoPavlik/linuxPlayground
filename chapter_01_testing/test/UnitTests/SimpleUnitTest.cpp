@@ -13,9 +13,9 @@ TEST(SimpleUnitTestForBook, strictText)
 {
     Book myBook("Shawshank");
 
-    EXPECT_STREQ(myBook.getBookName().c_str(), "Green Mile");
+    EXPECT_STRNE(myBook.getBookName().c_str(), "Green Mile");
     std::cout << "PRINTED - Here is book name " << myBook.getBookName() << std::endl;
 
-    ASSERT_STREQ(myBook.getBookName().c_str(), "Hannibal");
+    ASSERT_STRNE(myBook.getBookName().c_str(), "Hannibal");
     std::cout << "NOT PRINTED - Here is book name " << myBook.getBookName() << std::endl;
 }

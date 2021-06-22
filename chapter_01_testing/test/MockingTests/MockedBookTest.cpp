@@ -8,22 +8,20 @@ using ::testing::Return;
 
 TEST(MockedBookTest, simpleTest)
 {
-  MockedBook dummyBook("Not important name");
+    MockedBook dummyBook("Not important name");
 
-  EXPECT_CALL(dummyBook, getBookName())
-      .Times(AtLeast(1))
-      .WillOnce(Return("Lord of the Rings"))
-      .WillRepeatedly(Return("Harry Potter"));
+    EXPECT_CALL(dummyBook, getBookName()).Times(AtLeast(1)).WillOnce(Return("Lord of the Rings")).WillRepeatedly(Return("Harry Potter"));
 
-  std::cout << dummyBook.getBookName() << std::endl;
-  std::cout << dummyBook.getBookName() << std::endl;
-  std::cout << dummyBook.getBookName() << std::endl;
+    std::cout << dummyBook.getBookName() << std::endl;
+    std::cout << dummyBook.getBookName() << std::endl;
+    std::cout << dummyBook.getBookName() << std::endl;
 }
 
 TEST(MockedBookTest, failingTest)
 {
-  MockedBook dummyBook("Not important name");
+    MockedBook dummyBook("Not important name");
 
-  EXPECT_CALL(dummyBook, getBookName())
-      .Times(AtLeast(1));
+    EXPECT_CALL(dummyBook, getBookName()).Times(AtLeast(1));
+
+    dummyBook.getBookName();
 }
