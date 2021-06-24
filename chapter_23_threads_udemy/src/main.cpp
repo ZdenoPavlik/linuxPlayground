@@ -6,7 +6,9 @@
 
 #include "exercise1.cpp"
 #include "exercise2_ship.cpp"
-#include "exercuse3_parallel_acumulate.cpp"
+#include "exercise3_parallel_accumulate.cpp"
+#include "exercise4_condition_variable.cpp"
+#include "exercise5_parallel_accumulate_async.cpp"
 
 int main()
 {
@@ -17,7 +19,11 @@ int main()
     thread_guard tg(t1);*/
 
     // exercise2_ship();
-    example3();
+    // exercise3_parallel_accumulate();
+
+    // example4::exercise4_condition_variable();
+
+    exercise5::exercise5_parallel_accumulate_async();
 
     return 0;
 }

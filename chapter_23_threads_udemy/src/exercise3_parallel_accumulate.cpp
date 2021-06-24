@@ -4,6 +4,7 @@
 #include <numeric>
 #include <functional>
 
+namespace exercise3 {
 const unsigned int MIN_BLOCK_SIZE = 10000;
 
 template <typename iterator, typename T>
@@ -47,7 +48,7 @@ T parallel_accumulate(iterator begin, iterator end, T ref)
     return std::accumulate(results.begin(), results.end(), ref);
 }
 
-void example3()
+void exercise3_parallel_accumulate()
 {
     const int elementSize = 100'000'123;
     std::vector<int> numbers(elementSize);
@@ -74,3 +75,4 @@ void example3()
     std::cout << "Result is " << result << std::endl;
     std::cout << "Elapsed time for ACCUMULATE, parallel variant: " << elapsed.count() << std::endl;
 }
+} // namespace exercise3
