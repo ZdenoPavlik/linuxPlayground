@@ -11,7 +11,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/chapter_00/Chapter_00",
             "args": [],
-            "stopAtEntry": true,
+            "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,

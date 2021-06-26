@@ -1,6 +1,3 @@
-/*
-    Playground project for C++
-*/
 #include <iostream>
 
 int main()
