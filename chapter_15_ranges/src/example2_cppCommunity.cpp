@@ -2,6 +2,7 @@
 #include <ranges>
 #include <vector>
 #include <algorithm>
+#include <execution>
 
 template <typename T>
 void logValues(const std::string& tag, const std::vector<T>& values)
@@ -46,7 +47,7 @@ void example2_cppCommunity()
     std::random_shuffle(values.begin(), values.end());
     logValues("default", values.begin(), values.end());
 
-    std::sort(values.begin(), values.end());
+    std::sort(std::execution::par, values.begin(), values.end());
     logValues("old_1", values.begin(), values.end());
 
     std::sort(values.rbegin(), values.rend());

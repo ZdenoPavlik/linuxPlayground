@@ -80,5 +80,6 @@
     "debug.onTaskErrors": "abort",
     "cSpell.words": [
         "clazz"
-    ]
+    ],
+    "editor.formatOnSave": true
 }

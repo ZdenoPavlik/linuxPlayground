@@ -78,6 +78,9 @@ add_subdirectory(chapter_22_threads_future)
 #Chapter 23 -> Thread exercises, Udemy course
 add_subdirectory(chapter_23_threads_udemy)
 
+#Chapter 24 -> C++ community, std::variant demo
+add_subdirectory(chapter_24_variantCppCommunityDemo)
+
 
 
 
