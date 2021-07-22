@@ -81,6 +81,10 @@ add_subdirectory(chapter_23_threads_udemy)
 #Chapter 24 -> C++ community, std::variant demo
 add_subdirectory(chapter_24_variantCppCommunityDemo)
 
+#Chapter 25 -> Thread pool
+add_subdirectory(chapter_25_thread_pool)
+
+
 
 
 
