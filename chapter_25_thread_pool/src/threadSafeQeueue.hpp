@@ -9,84 +9,45 @@
 template <typename T>
 class thread_safe_queue
 {
-    std::mutex m;
-    std::condition_variable cv;
-    std::queue<std::shared_ptr<T>> queue;
+    mutable std::mutex m;
+    std::queue<T> queue;
 
 public:
-    thread_safe_queue() {}
+    thread_safe_queue() = default;
+    ~thread_safe_queue() = default;
+    thread_safe_queue(const thread_safe_queue& other) = delete;                // copy constructor
+    thread_safe_queue(thread_safe_queue&& other) noexcept = delete;            // move constructor
+    thread_safe_queue& operator=(const thread_safe_queue& other) = delete;     // copy assignment
+    thread_safe_queue& operator=(thread_safe_queue&& other) noexcept = delete; // move assignment
 
-    thread_safe_queue(thread_safe_queue const& other_queue)
+    void push(T item)
     {
-        std::lock_guard<std::mutex> lg(other_queue.m);
-        queue = other_queue.queue;
+        std::lock_guard<std::mutex> guard(m);
+        queue.push(item);
     }
 
-    void push(T& value)
+    T pop(void)
     {
-        std::lock_guard<std::mutex> lg(m);
-        queue.push(std::make_shared<T>(value));
-        cv.notify_one();
-    }
-
-    std::shared_ptr<T> pop()
-    {
-        std::lock_guard<std::mutex> lg(m);
+        std::lock_guard<std::mutex> guard(m);
         if(queue.empty())
         {
-            return std::shared_ptr<T>();
+            throw std::runtime_error("Popping from empty queue");
         }
-        else
-        {
-            std::shared_ptr<T> ref(queue.front());
-            queue.pop();
-            return ref;
-        }
-    }
 
-    bool empty()
-    {
-        std::lock_guard<std::mutex> lg(m);
-        return queue.empty();
-    }
-
-    std::shared_ptr<T> wait_pop()
-    {
-        std::unique_lock<std::mutex> lg(m);
-        cv.wait(lg, [this] { return !queue.empty(); });
-        std::shared_ptr<T> ref = queue.front();
+        auto retF = queue.front();
         queue.pop();
-        return ref;
+        return retF;
     }
 
-    size_t size()
+    size_t size() const
     {
-        std::lock_guard<std::mutex> lg(m);
+        std::lock_guard<std::mutex> guard(m);
         return queue.size();
     }
 
-    bool wait_pop(T& ref)
+    bool empty() const
     {
-        std::unique_lock<std::mutex> lg(m);
-        cv.wait(lg, [this] { return !queue.empty(); });
-
-        ref = *(queue.front().get());
-        queue.pop();
-        return true;
-    }
-
-    bool pop(T& ref)
-    {
-        std::lock_guard<std::mutex> lg(m);
-        if(queue.empty())
-        {
-            return false;
-        }
-        else
-        {
-            ref = queue.front();
-            queue.pop();
-            return true;
-        }
+        std::lock_guard<std::mutex> guard(m);
+        return queue.empty();
     }
 };
