@@ -5,6 +5,7 @@
 #include <memory>
 #include <condition_variable>
 #include <thread>
+#include <optional>
 
 template <typename T>
 class thread_safe_queue
@@ -26,12 +27,13 @@ public:
         queue.push(item);
     }
 
-    T pop(void)
+    std::optional<T> pop(void)
     {
         std::lock_guard<std::mutex> guard(m);
         if(queue.empty())
         {
-            throw std::runtime_error("Popping from empty queue");
+            // throw std::runtime_error("Popping from empty queue");
+            return {};
         }
 
         auto retF = queue.front();

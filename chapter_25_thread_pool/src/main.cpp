@@ -5,9 +5,14 @@
 #include <functional>
 #include <thread>
 #include <threadSafeQeueue.hpp>
+#include <optional>
 
 // https://github.com/ZdenoPavlik/cpp_concurrency_masterclass/blob/master/s8_simple_threadpool/simple_thread_pool.h#L32
 // https://stackoverflow.com/questions/57219650/stdcondition-variablenotify-all-only-wakes-up-one-thread-in-my-threadpool
+// https://www.modernescpp.com/index.php/c-core-guidelines-be-aware-of-the-traps-of-condition-variables
+// https://gist.github.com/ivcn/e793a7a4727e748fa65ff6870ece04f6
+// https://stackoverflow.com/questions/17613727/threadpool-implementation-condition-variables-vs-yield
+// https://programmersought.com/article/55922144723/
 
 class thread_pool
 {
@@ -39,6 +44,7 @@ public:
     {
         std::cout << "Setting DONE to TRUE" << std::endl;
         done.store(true);
+        workerCV.notify_all();
     }
 
     template <typename function_type>
@@ -65,70 +71,79 @@ private:
     std::vector<std::jthread> threads;
     std::condition_variable workerCV;
     std::mutex workerM;
+    std::unique_lock<std::mutex> workerL;
 
     static void worker_function(thread_pool* instance)
     {
         while(!instance->done.load())
         {
-            std::unique_lock<std::mutex> lk(instance->workerM);
-            // std::unique_lock<std::mutex> lk(instance->workerM, std::defer_lock);
+            if(!instance->work_queue.empty())
+            {
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+                // std::cout << "Queue not empty" << std::endl;
+                auto function = instance->work_queue.pop();
+                if(function.has_value())
+                {
+                    function.value()();
+                }
+            }
+            else
+            {
+                std::unique_lock<std::mutex> lck(instance->workerM);
+                instance->workerCV.wait(lck, [&instance] { return !instance->work_queue.empty(); });
+                // std::cout << "Thread awaken " << std::endl;
+            }
 
-            // if(lk.try_lock())
-            //{
-            std::cout << "Locked worker" << std::endl;
+            /*instance->workerCV.wait(instance->workerL, [&instance] { return !instance->work_queue.empty(); });
+
+            // std::unique_lock<std::mutex> lk(instance->workerM);
+
             if(!instance->work_queue.empty())
             {
                 std::cout << "Queue not empty" << std::endl;
                 auto function = instance->work_queue.pop();
                 function();
+                // lk.unlock();
             }
             else
             {
                 std::cout << "Queue IS empty" << std::endl;
-            }
-            lk.unlock();
-
-            std::cout << "UNlocked worker" << std::endl;
-            //}
-
-            // std::cout << "Locking" << std::endl;
-            instance->workerCV.wait(lk, [&instance] { return !instance->work_queue.empty(); }); // everything locks here...
-            // std::cout << "Unlocking" << std::endl;
-
-            // else
-            //{
-            //
-            //}
-
-            // lk.unlock();
-            // std::this_thread::yield();
-            // instance->workerCV.notify_all();
+                // instance->workerCV.wait(lk, [&instance] { return !instance->work_queue.empty(); }); // everything locks here...
+            }*/
         }
     }
 };
 
 int main()
 {
-    std::cout << "-------- Thread pool --------" << std::endl;
-    std::cout << std::hex << "ID of main thread is 0x" << std::this_thread::get_id() << std::endl;
 
-    thread_pool pool;
-    for(unsigned int i = 0; i < 20; i++)
+    try
     {
-        pool.submit([=]() {
+        std::cout << "-------- Thread pool --------" << std::endl;
+        std::cout << std::hex << "ID of main thread is 0x" << std::this_thread::get_id() << std::endl;
+
+        thread_pool pool;
+        for(unsigned int i = 0; i < 20; i++)
+        {
+            pool.submit([=]() {
+                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::cout << std::dec << i << " - Printed by thread 0x" << std::hex << std::this_thread::get_id() << std::endl;
+            });
+        }
+
+        while(!pool.workQueueEmpty())
+        {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            std::cout << std::dec << i << " - Printed by thread 0x" << std::hex << std::this_thread::get_id() << std::endl;
-        });
-    }
+        }
 
-    while(!pool.workQueueEmpty())
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+        pool.setWorkDone();
+    }
+    catch(std::exception& e)
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::cout << "Exception: " << e.what() << std::endl;
     }
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(200));
-
-    pool.setWorkDone();
 
     return 0;
 }
