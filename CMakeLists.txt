@@ -84,6 +84,9 @@ add_subdirectory(chapter_24_variantCppCommunityDemo)
 #Chapter 25 -> Thread pool
 add_subdirectory(chapter_25_thread_pool)
 
+#Chapter 26 -> Qt core
+add_subdirectory(chapter_26_Qt_core)
+
 
 
 

@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/local/gcc-11.1.0/include/**"
+                "/usr/local/gcc-11.1.0/include/**",
+                "~/Qt/6.1.2/**"
             ],
             "defines": [],
             "compilerPath": "/usr/local/gcc-11.1.0/bin/g++-11.1",
