@@ -44,14 +44,14 @@ public:
     {
         std::cout << "Setting DONE to TRUE" << std::endl;
         done.store(true);
-        workerCV.notify_all();
+        // workerCV.notify_all();
     }
 
     template <typename function_type>
     void submit(function_type f)
     {
         work_queue.push(std::function<void()>(f));
-        this->workerCV.notify_one();
+        // this->workerCV.notify_one();
     }
 
     bool workQueueEmpty() const
@@ -62,16 +62,16 @@ public:
     void setWorkDone()
     {
         this->done.store(true);
-        this->workerCV.notify_all();
+        // this->workerCV.notify_all();
     }
 
 private:
     std::atomic_bool done; // global command to terminate all threads
     thread_safe_queue<std::function<void()>> work_queue;
     std::vector<std::jthread> threads;
-    std::condition_variable workerCV;
-    std::mutex workerM;
-    std::unique_lock<std::mutex> workerL;
+    // std::condition_variable workerCV;
+    // std::mutex workerM;
+    // std::unique_lock<std::mutex> workerL;
 
     static void worker_function(thread_pool* instance)
     {
@@ -89,9 +89,10 @@ private:
             }
             else
             {
-                std::unique_lock<std::mutex> lck(instance->workerM);
-                instance->workerCV.wait(lck, [&instance] { return !instance->work_queue.empty(); });
+                // std::unique_lock<std::mutex> lck(instance->workerM);
+                // instance->workerCV.wait(lck, [&instance] { return !instance->work_queue.empty(); });
                 // std::cout << "Thread awaken " << std::endl;
+                std::this_thread::yield();
             }
 
             /*instance->workerCV.wait(instance->workerL, [&instance] { return !instance->work_queue.empty(); });
