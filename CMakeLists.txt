@@ -87,6 +87,9 @@ add_subdirectory(chapter_25_thread_pool)
 #Chapter 26 -> Qt core
 add_subdirectory(chapter_26_Qt_core)
 
+#Chapter 27 -> Object tree
+add_subdirectory(chapter_27_object_tree)
+
 
 
 

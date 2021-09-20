@@ -75,7 +75,15 @@
         "numbers": "cpp",
         "semaphore": "cpp",
         "coroutine": "cpp",
-        "any": "cpp"
+        "any": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "forward_list": "cpp",
+        "unordered_set": "cpp",
+        "regex": "cpp",
+        "source_location": "cpp",
+        "slist": "cpp",
+        "shared_mutex": "cpp"
     },
     "debug.onTaskErrors": "abort",
     "cSpell.words": [
