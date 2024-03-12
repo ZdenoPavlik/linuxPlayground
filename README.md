@@ -10,6 +10,7 @@ sudo snap install code --classic
 ```
 
 For initial setup of repository use **./rebuild.sh** script
+test
 
 ## Chapter 00
 Basic setup used as template for other chapters
